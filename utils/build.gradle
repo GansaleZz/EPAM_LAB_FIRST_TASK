@@ -20,6 +20,13 @@ test {
     useJUnitPlatform()
 }
 
+jar {
+    manifest {
+        attributes("Implementation-Title": project.name,
+                "Implementation-Version": version)
+    }
+}
+
 task fatJar(type: Jar) {
     manifest.from jar.manifest
     from {
